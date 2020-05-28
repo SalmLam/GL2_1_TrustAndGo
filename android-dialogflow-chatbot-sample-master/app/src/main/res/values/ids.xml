@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="app_bar" type="id" />
+    <item name="textView25" type="id" />
+    <item name="etAddName" type="id" />
+    <item name="textView26" type="id" />
+    <item name="etAddPhone" type="id" />
+    <item name="textView27" type="id" />
+    <item name="etAddress" type="id" />
+    <item name="login_password_input" type="id" />
+    <item name="linear_layout_1" type="id" />
+    <item name="login_btn" type="id" />
+    <item name="login_phone_number_input" type="id" />
+    <item name="login_applogo" type="id" />
+</resources>
