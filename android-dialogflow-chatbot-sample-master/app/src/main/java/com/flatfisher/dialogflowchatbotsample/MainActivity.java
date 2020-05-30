@@ -20,6 +20,7 @@ import com.github.bassaer.chatmessageview.view.ChatView;
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
@@ -47,6 +48,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private ChatView chatView;
     private User myAccount;
     private User TrustGo;
+    List<String> listBooks = new ArrayList<String>();
+    List<String> listFilms= new ArrayList<String>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -147,6 +151,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 final String speech = result.getFulfillment().getSpeech();
                 final Metadata metadata = result.getMetadata();
                 final HashMap<String, JsonElement> params = result.getParameters();
+                listBooks.add(result.getResolvedQuery());
+                listFilms.add(result.getResolvedQuery());
 
                 // Logging
                 Log.d(TAG, "onResult");
@@ -169,9 +175,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                 entry.getKey(), entry.getValue().toString()));
                     }
                 }
-                if(result.getAction().equals("thank you") ||    result.getAction().equals("Cool !! it's great to see such an enthusiast . I wish our recommendation  will please you.")){
-                    Intent homeIntent = new Intent(MainActivity.this, FilmActivity.class);
-                    startActivity(homeIntent);
+                if(speech.equals("Cool !! it's great to see such an enthusiast . I wish our recommendation  will please you.")) {
+                    Log.i(TAG, "list of book " + listBooks);
+                    Intent listBooks = new Intent(MainActivity.this, BookActivityWaiting.class);
+                    listBooks.putExtra("listBooks", listBooks);
+                    startActivity(listBooks);
+                    finish();
+                }else if(speech.equals("it's great to see such an enthusiast . I wish our recommendation  will please you.")   ){
+                    Log.i(TAG, "list of film " + listFilms);
+                    Intent listFilms = new Intent(MainActivity.this, FilmActivityWaiting.class);
+                    listFilms.putExtra("listFilms", listFilms);
+                    startActivity(listFilms);
                     finish();
                 }else{
                     //Update view to bot says
