@@ -5,6 +5,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.telecom.Call;
 import android.util.Log;
@@ -55,10 +56,13 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         editEmail = findViewById(R.id.editEmail);
         editPassword = findViewById(R.id.editPass);
+        final MediaPlayer mp = MediaPlayer.create(this,R.raw.sampla);
         findViewById(R.id.login).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 userLogin();
+                mp.start();
+
             }
         });
 
@@ -67,6 +71,7 @@ public class MainActivity extends AppCompatActivity {
              @Override
              public void onClick(View v) {
                  openSignUpActivity();
+                 mp.start();
              }
          });
         mFireBaseAuth = FirebaseAuth.getInstance();
@@ -131,7 +136,7 @@ public class MainActivity extends AppCompatActivity {
                 }else{
              //       Log.d(TAG , "Sign in with credential : failure" + task.getException());
                     Toast.makeText(MainActivity.this , "Authentifictaion failed " , Toast.LENGTH_SHORT).show();
-                    UpdateUI(null);
+                    //UpdateUI(null);
                 }
             }
         });
@@ -146,13 +151,13 @@ public class MainActivity extends AppCompatActivity {
     private void UpdateUI(FirebaseUser user){
         if(user != null){
             textViewUser.setText(user.getDisplayName());
-            if(user.getPhotoUrl() != null){
-                String photoUrl = user.getPhotoUrl().toString();
-                photoUrl = photoUrl + "?type=large";
-                Picasso.get().load(photoUrl).into(mLogo);
-
-
-            }
+//            if(user.getPhotoUrl() != null){
+//                String photoUrl = user.getPhotoUrl().toString();
+//                photoUrl = photoUrl + "?type=large";
+//                Picasso.get().load(photoUrl).into(mLogo);
+//
+//
+//            }
         }else {
             textViewUser.setText("");
           //  mLogo.setImageResource(R.drawable.com_facebook_profile_picture_blank_portrait);
@@ -195,6 +200,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
+                    //l'activite suivante (chatbot)
                     Intent intent = new Intent(MainActivity.this,WelcomeActivity.class);
                    // intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(intent);
