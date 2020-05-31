@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <EditText
+        android:id="@+id/rat1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Dracula(Horror)"
+        android:inputType="number" />
+
+    <EditText
+        android:id="@+id/rat2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Mr.Wrong(Comedy)"
+        android:inputType="number" />
+
+    <EditText
+        android:id="@+id/rat3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_centerHorizontal="true"
+        android:ems="10"
+        android:hint="Jupiter's Wife(Documentary)"
+        android:inputType="number" />
+    <EditText
+        android:id="@+id/rat4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_centerHorizontal="true"
+        android:ems="10"
+        android:hint="Amazing Panda Adventure(Adventure|Children)"
+        android:inputType="number" />
+    <EditText
+        android:id="@+id/rat5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_centerHorizontal="true"
+        android:ems="10"
+        android:hint="Mad love(Romance)"
+        android:inputType="number" />
+    <EditText
+        android:id="@+id/rat6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_centerHorizontal="true"
+        android:ems="10"
+        android:hint="Strange Days(Crime)"
+        android:inputType="number" />
+    <EditText
+        android:id="@+id/rat7"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_centerHorizontal="true"
+        android:ems="10"
+        android:hint="My Family(Drama)"
+        android:inputType="number" />
+
+
+
+
+
+    <Button
+        android:id="@+id/submitButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Submit" />
+</RelativeLayout>
+
+
+
